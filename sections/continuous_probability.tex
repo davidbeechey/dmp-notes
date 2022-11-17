@@ -1,0 +1,49 @@
+\section*{Conditional Probability}
+
+\subsection*{Continuous Random Variables}
+
+A continuous random variable is one that takes values over a continuous range.
+
+A continuous random variable $X$ must have the property that $P(X=x)=0 \forall x \in \mathbb{R}$.
+
+(This only applies to individual values, ranges may have non-zero probabilities).
+
+\subsubsection*{Probability Density Function}
+
+The probability density function (PDF) of a continuous random variable $X$ is a function $f(x)$ such that for any two numbers $a\leq b$ we have the following:
+
+$$ P(a \leq X \leq b) = \int_a^b f(x) dx $$
+
+For any PDF we know that $f(x) \geq 0$ for all values of $x$ and the total area under the whole graph is 1:
+
+$$ \int_{-\infty}^{\infty} f(x) dx = 1 $$
+
+\subsubsection*{Uniform Distribution}
+
+A continuous random variable $X$ has uniform distribution on the interval $[a,b]$ for values $a \leq b$ if the PDF is given by:
+
+$$ f(x; a,b) = \begin{cases} \frac{1}{b-a} & a \leq x \leq b \\ 0 & \text{otherwise} \end{cases} $$
+
+We write this as $X \sim \text{Unif}(a,b)$.
+
+\subsubsection*{Cumulative Distribution Function}
+
+For a continuous random variable $X$ with PDF $f(x)$, the cumulative distribution function (CDF) is given by:
+
+$$ F(x) = P(X \leq x) = \int_{-\infty}^x f(y) dy $$
+
+For any number $x$, $F(x)$ is the probability that the observed value of $X$ will be no more than $x$.
+
+For any value $a$ we have:
+
+$$ P(X \leq a) = F(a) $$
+$$ P(X > a) = 1 - F(a) $$
+
+... and for any two values $a < b$ we have:
+
+$$ P(a \leq X \leq b) = F(b) - F(a) $$
+
+Conversion between PDF and CDF gives different ways to calculate the probabilities involved.
+
+\subsection*{Percentiles of Continuous Distributions}
+
