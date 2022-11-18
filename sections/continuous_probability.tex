@@ -1,4 +1,4 @@
-\section*{Conditional Probability}
+\section{Conditional Probability}
 
 \subsection*{Continuous Random Variables}
 
@@ -34,6 +34,10 @@ $$ F(x) = P(X \leq x) = \int_{-\infty}^x f(y) dy $$
 
 For any number $x$, $F(x)$ is the probability that the observed value of $X$ will be no more than $x$.
 
+If $X$ is a continuous random variable with PDF $f(x)$ and CDF $F(x)$ then at every $x$ where the derivative $F'(x)$ is defined we have:
+
+$$ F'(x) = f(x) $$
+
 For any value $a$ we have:
 
 $$ P(X \leq a) = F(a) $$
@@ -47,3 +51,75 @@ Conversion between PDF and CDF gives different ways to calculate the probabiliti
 
 \subsection*{Percentiles of Continuous Distributions}
 
+Let $X$ be a continuous random variable with PDF $f(x)$ and CDF $F(x)$ and $p$ any real value between $0$ and $1$.
+
+The ($100p$)th percentile of $X$ is the value $\eta_p$ such that $P(X \leq \eta_p) = p$.
+
+So we have:
+
+$$ p = \int_{-\infty}^{\eta_p} f(x) dx = F(\eta_p) $$
+
+and
+
+$$ \eta_p = F^{-1}(p) $$
+
+\subsection*{Expected Value}
+
+Let $X$ be a continuous random variable with PDF $f(x)$. The expected value $E(x)$ is calculated as a weighted integral:
+
+$$ E(X) = \int_{-\infty}^{\infty} xf(x) dx $$
+
+This is also known as the mean of the distribution and written as $\mu_X$ or simply $\mu$.
+
+\subsubsection*{Proposition}
+
+Let $X$ be a continuous random variable with PDF $f(x)$. If $h(x)$ is any real-valued functio nof $X$ then we can calculate an expected value for that, too:
+
+$$ E(h(X)) = \int_{-\infty}^{\infty} h(x)f(x) dx $$
+
+\textbf{Note:} $E(h(x))$ does not necessarily equal $h(E(x))$.
+
+\subsection*{Variance and Standard Deviation}
+
+Let $X$ be a continuous random variable with PDF $f(x)$ and mean $\mu$. Its variance $\text{Var}(X)$ is the expected value of the squared distance to the mean.
+
+\begin{align*}
+     & \text{Var}(X)                               \\
+     & = E((X-\mu)^2)                              \\
+     & = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx \\
+\end{align*}
+
+$$ \text{SD}(X) = \sqrt{\text{Var}(X)} $$
+
+\subsubsection*{Properties}
+
+\textbf{Variance Shortcut:}
+
+\begin{align*}
+     & \text{Var}(X)                                                                           \\
+     & = E(X^2) - \mu^2                                                                        \\
+     & = \int_{-\infty}^{\infty} x^2 f(x) dx - \left(\int^{\infty}_{-\infty}x f(x) dx\right)^2 \\
+\end{align*}
+
+\textbf{Chebyshev's Inequality:}
+
+For any constant value $k \geq 1$, the probability that $X$ is more than $k$ standard deviations away from the mean is no more than $\frac{1}{k^2}$.
+
+$$ P(|X-\mu| \geq k\text{SD}(X)) \leq \frac{1}{k^2} $$
+
+\textbf{Linearity of Expectation:}
+
+For any functions $h_1(x)$ and $h_2(x)$ and constants $a_1$, $a_2$ and $b$, the expected values of these in linear combinations is the linear combination of the expected values.
+
+\begin{align*}
+     & E(a_1h_1(X) + a_2h_2(X) + b)      \\
+     & = a_1E(h_1(X)) + a_2E(h_2(X)) + b \\
+\end{align*}
+
+\textbf{Rescaling:}
+
+For any constants $a$ and $b$, the mean, variance and standard deviation of $(aX+b)$ can be calculated from the corresponding values for $X$:
+
+$$ E(aX+b) = aE(X) + b $$
+$$ \text{Var}(aX+b) = a^2\text{Var}(X) $$
+$$ \text{SD}(aX+b) = |a|\text{SD}(X) $$
