@@ -1,0 +1,162 @@
+\section{Conditional and Limit Distributions}
+
+\subsection*{Conditional Distribution Functions}
+
+Let $X$ and $Y$ be discrete random variables with joint probability mass function $p(x,y)$ and marginal $p_X(x)$ for $X$. Then the conditional probability mass function (CPMF) of $Y$ given $X$ is defined as follows:
+
+$$ p_{Y\mid X}(y\mid x) = \frac{p(x,y)}{p_X(x)} $$
+
+For continuous random variables $X$ and $Y$ with JPDF $f(x,y)$ and $X$ marginal $f_X(x)$ we have an analogous conditional probability density function (CPDF):
+
+$$ f_{Y\mid X}(y\mid x) = \frac{f(x,y)}{f_X(x)} $$
+
+\subsection*{Independence}
+
+Two discrete random variables $X$ and $Y$ are independent iff the conditional PMF of $X$ is the same as its marginal PMF; or similarly for $Y$.
+
+\begin{align*}
+         & p_{X\mid Y}(x\mid y) = p_X(x) \\
+    \iff & p_{Y\mid X}(y\mid x) = p_Y(y) \\
+    \iff & p(x,y) = p_X(x)p_Y(y)         \\
+\end{align*}
+
+The same result holds for continuous random variables and their conditional and marginal probability density functions.
+
+\begin{align*}
+         & f_{X\mid Y}(x\mid y) = f_X(x) \\
+    \iff & f_{Y\mid X}(y\mid x) = f_Y(y) \\
+    \iff & f(x,y) = f_X(x)f_Y(y)         \\
+\end{align*}
+
+(For independent random variables, conditional probabilities are the same as unconditional ones).
+
+\subsection*{Conditional Expectation and Variance}
+
+For discrete random variables $X$ and $Y$, the conditional mean/expectation of $Y$ given $X$ is defined from the probability mass $p_{Y\mid X}(y\mid x)$:
+
+\begin{align*}
+    \mu_{Y\mid X}(x) & = E(Y\mid X=x)                          \\
+                     & = \sum_{y} y\cdot  p_{Y\mid X}(y\mid x) \\
+\end{align*}
+
+For continuous random variables $X$ and $Y$, the conditional expectation uses integration and the conditional probability density $f_{Y\mid X}(y\mid x)$:
+
+\begin{align*}
+    \mu_{Y\mid X}(x) & = E(Y\mid X=x)                                           \\
+                     & = \int_{-\infty}^{\infty} y\cdot f_{Y\mid X}(y\mid x) dy \\
+\end{align*}
+
+The conditional expectation of a function $h(Y)$ given $X$ for random variables $X$ and $Y$ is defined similarly to the mean:
+
+\begin{align*}
+      & E(h(Y)\mid X=x)                                                               \\
+    = & \begin{cases}
+            \sum_{y} h(y)\cdot p_{Y\mid X}(y\mid x)                   & \text{discrete}   \\
+            \int_{-\infty}^{\infty} h(y)\cdot f_{Y\mid X}(y\mid x) dy & \text{continuous} \\
+        \end{cases}
+\end{align*}
+
+In particular, we can calculate the conditional variance of $Y$ given $X$:
+
+\begin{align*}
+    \sigma^2_{Y\mid X=x} & = \text{Var}(Y\mid X=x)              \\
+                         & = E((Y-\mu_{Y\mid X=x})^2\mid X=x)   \\
+                         & = E(Y^2\mid X=x) - \mu_{Y\mid X=x}^2 \\
+\end{align*}
+
+\subsection*{Law of Expectation and Variance}
+
+For random variables $X$ and $Y$, the conditional mean and variance of $Y$ given $X$ are themselves both random variables. Each has its own distribution, mean, and variance, with the following properties:
+
+\textbf{Law of Total Expectation:}
+$$ E(E(Y\mid X)) = E(Y)$$
+
+\textbf{Law of Total Variance:}
+$$ E(\text{Var}(Y\mid X)) = \text{Var}(Y)$$
+
+(These equations are helpful when the distribution of $Y$ is only known by its conditional distribution on $X$).
+
+\subsection*{The Central Limit Theorem}
+
+\subsubsection*{Random Samples}
+
+A set of random variables $X_1, X_2, \ldots, X_n$ are independent and identically distributed IID, if:
+
+\begin{itemize}
+    \item The random variables $X_i$ are all independent, and
+    \item Every $X_i$ has the same distribution.
+\end{itemize}
+
+We call such a set a random sample of size $n$ from this distribution.
+
+\subsubsection*{Total and Mean}
+
+For a random sample $X_1,X_2,\ldots,X_n$ of size $n$ the sample total $T$ and sample mean $\bar{X}$ are two random variables defined from the $X_i$:
+
+$$ T = X_1 + X_2 + \cdots + X_n = \sum^n_{i=1} X_i $$
+$$ \bar{X} = \frac{X_1+X_2+\ldots +X_n}{n} = \frac{T}{n} $$
+
+\subsubsection*{Properties of Sample Total and Mean}
+
+Let $T$ and $\bar{X}$ be the sample total and mean of a random sample $X_1,X_2,\ldots,X_n$ of size $n$ from a distribution with mean $\mu$ and variance $\sigma^2$.
+Then they have the following properties:
+
+\begin{itemize}
+    \item $E(T) = n\mu$
+    \item $\text{Var}(T)=n\sigma^2$
+    \item $\text{SD}(T)=\sqrt{n}\sigma$
+    \item If the $X_i$ are normally distributed, then so is $T$
+    \item $E(\bar{X}) = \mu$
+    \item $\text{Var}(\bar{X}) = \frac{\sigma^2}{n}$
+    \item $\text{SD}(\bar{X}) = \frac{\sigma}{\sqrt{n}}$
+    \item If the $X_i$ are normally distributed, then so is $\bar{X}$.
+\end{itemize}
+
+\subsubsection*{Sampling Normal Distributions}
+
+Let $X_1,X_2,\ldots,X_n$ be a random sample of size $n$ from a normal distribution where each $X_i$ hasa mean $\mu$ and standard deviation $\sigma$.
+Then:
+
+$$ X_i \sim N(\mu,\sigma) $$
+$$ \bar{X} \sim N(\mu,\frac{\sigma}{\sqrt{n}}) $$
+
+\subsection*{The Central Limit Theorem}
+
+Let $X_1,X_2,\ldots,X_n$ be a random sample of size $n$ from a distribution where each $X_i$ has mean $\mu$ and standard deviation $\sigma$. In the limit as $n\to \infty$ the sample total $T$ and sample mean $\bar{X}$ have normal distributions:
+
+\begin{align*}
+      & \lim_{n\to\infty} P\left(\frac{T-n\mu}{\sqrt{n} \sigma}\leq z\right) \\
+    = & P(Z=z)                                                               \\
+    = & \Phi(z)
+\end{align*}
+
+$$"\lim_{n\to\infty}T\sim N(n\mu,\sigma^2)"$$
+
+\begin{align*}
+      & \lim_{n\to\infty} P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq z\right) \\
+    = & P(Z=z)                                                                    \\
+    = & \Phi(z)
+\end{align*}
+
+$$"\lim_{n\to\infty}\bar{X}\sim N(\mu,\sigma^2/n)"$$
+
+Here $Z\sim N(0,1)$ is a standard normal variable. We say that random  variables $T$ and $\bar{X}$ are asymptotically normal.
+
+\subsubsection*{Sampling Arbitrary Distributions}
+
+Let $X_1, X_2, \ldots, X_n$ be a random sample of IID variables, each with mean $\mu$ and standard deviation $\sigma$.
+Then as $n$ becomes large the random variable $\bar{X}$ approaches a normal distribution.
+
+$$"\lim_{n\to\infty}\bar{X}\sim N(\mu,\sigma^2/n)"$$
+
+\subsection*{The Law of Large Numbers}
+
+Let $X_1,X_2,\ldots,X_n$ be a random sample of size $n$ from a distribution where each $X_i$ has mean $\mu$ and standard deviation $\sigma$.
+In the limit as $n\to \infty$ the sample mean $\bar{X}$ converges to $\mu$.
+
+\begin{itemize}
+    \item As $n\to\infty$ the mean square $E((\bar{X}-\mu)^2)\to 0$.
+    \item As $n\to\infty$ the probability $P(|\bar{X}-\mu|>\epsilon)\to 0$ for any $\epsilon>0$.
+\end{itemize}
+
+

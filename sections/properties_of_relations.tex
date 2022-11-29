@@ -1,0 +1,101 @@
+% Chapter 8 of Epp
+
+\section{Properties of Relations}
+
+\subsection*{Equivalence Relations}
+
+\begin{definition}[Epp. page 508]
+    Let $A$ be a set and $R$ a relation on $A$. $R$ is an \textbf{equivalence relation} if, and only if, $R$ is reflexive, symmetric and transitive.
+\end{definition}
+
+\begin{definition}[Epp. page 510]
+    Suppose $A$ is a set and $R$ is an equivalence relation on $A$. For each element $A$ in $A$, the \textbf{equivalence class of $A$}, denoted $[a]$ and called the \textbf{class of $a$} for short, is the set of all elements $x$ in $A$ such that $x$ is related to $a$ by $R$.
+    $$ [a] = \{x\in A \mid  x R a\} $$
+\end{definition}
+
+\subsection*{Congruence}
+
+\begin{definition}[Epp. page 518]
+    Let $m$ and $n$ be integers and let $d$ be a positive integer. We say that \textbf{$m$ is congruent to $n$ modulo $d$} and write:
+    $$ m \equiv n \pmod{d} \iff 3 \mid (m-n) $$
+\end{definition}
+
+\subsection*{Modular Equivalences}
+
+\begin{theorem}[8.4.1 from Epp. page 526]
+    Let $a$, $b$ and $n$ be any integers and suppose $n>1$. The following statements are all equivalent:
+    \begin{enumerate}
+        \item $n\mid (a-b)$
+        \item $a \equiv b \pmod{n}$
+        \item $a = b + kn$ for some integer $k$
+        \item $a$ and $b$ have the same (nonnegative) remainder when divided by $n$
+        \item $a \pmod n = b \pmod n$
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[8.4.2 from Epp page 527]
+    If $n$ is any integer  with $n>1$, congruence modulo $n$ is an equivalence relation on the set of all integers. The distinct equivalence classes of the relation are the sets $[0],[1],\ldots,[n-1]$, where for each $a=0,1,\ldots,n-1$:
+    $$ [a] = \{m\in \mathbb{Z} \mid m \equiv a \pmod{n}\} $$
+    ... or equivalently:
+    $$ [a] = \{m\in \mathbb{Z} \mid m = a + kn \text{ for some integer } k \} $$
+\end{theorem}
+
+\subsection*{Modular Arithmetic}
+
+\begin{theorem}[8.4.2 from Epp page 528]
+    Let $a,b,c,d$ and $n$ be integers with $n>1$, and suppose:
+    $$ a \equiv c \pmod n $$
+    and 
+    $$ b \equiv d \pmod n $$
+    Then:
+    \begin{enumerate}
+        \item $(a+b) \equiv (c+d) \pmod n$
+        \item $(a-b) \equiv (c-d) \pmod n$
+        \item $ab \equiv cd \pmod n$
+        \item $a^m \equiv c^m \pmod n$ for all every positive integer $m$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection*{Euclidean Algorithm}
+
+\begin{theorem}[8.4.5 from Epp page 532]
+    For all integers $a$ and $b$, not both zero, if $d=\text{gcd}(a,b)$, then there exist integers $s$ and $t$ such that:
+    $$ as + bt = d $$
+\end{theorem}
+
+\subsection*{Inverse Modulo $n$}
+
+\begin{definition}[Epp page 534]
+    Given any integer $a$ and any positive integer $n$, if there exists an integer $s$ such that $as \equiv 1 \pmod n$, then $s$ is called \textbf{an inverse for $a$ modulo $n$}.
+\end{definition}
+
+\begin{definition}[Epp page 534]
+    Integers $a$ and $b$ are \textbf{relatively prime} if and only if $\text{gcd}(a,b)=1$. Integers $a_1,a_2,\ldots,a_n$ are \textbf{pairwise relatively prime} if and only if $\text{gcd}(a_i,a_j)=1$ for all integers $i$ and $j$ with $1 \leq i$, $j\leq n$, and $i\neq j$.
+\end{definition}
+
+\begin{corollary}[8.4.6 from Epp page 534]
+    If $a$ and $b$ are relatively prime integers, then there exist integers $s$ and $t$ such that $as+bt=1$.
+\end{corollary}
+
+\begin{corollary}[8.4.7 from Epp page 535]
+    If $a$ and $n$ are relatively prime integers, then $a$ has an inverse modulo $n$.For all integers $a$ and $n$, if $\text{gcd}(a,n)=1$, then there exists an integer $s$ such that $as\equiv 1 \pmod n$, and so $s$ is an inverse for $a$ modulo $n$.   
+\end{corollary}
+
+\subsection*{RSA Cryptography}
+
+\subsubsection*{Euclid's Lemma}
+
+\begin{theorem}[8.4.8 (Euclid's Lemma) from Epp page 539]
+    For all integers $a$, $b$ and $c$, if $\text{gcd}(a,c)=1$ and $a\mid bc$, then $a\mid b$.
+\end{theorem}
+
+\begin{theorem}[8.4.9 (Cancellation Theorem for Modular Congruence) from Epp page 539]
+    For all integers $a,b,c$, and $n$ with $n>1$, if $\text{gcd}(c,n)=1$ and $ac \equiv bc \pmod n$, then $a \equiv b \pmod n$.
+\end{theorem}
+
+\subsubsection*{Fermat's Little Theorem}
+
+\begin{theorem}[8.4.10 (Fermat's Little Theorem) from Epp page 540]
+    If $p$ is any prime number and $a$ is any integer such that $p \nmid a$, then $a^{p-1} \equiv 1 \pmod p$.
+\end{theorem}
+

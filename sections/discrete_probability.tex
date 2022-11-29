@@ -25,16 +25,16 @@ $$ F(x) = P(X \leq x) $$
 Similar to PDF graph except it adds them up (cumulative)
 
 \begin{align*}
-     & P(a < x \leq b)             \\
-     & = P(X \leq b) - P(X \leq a) \\
-     & = F(b) - F(a)
+      & P(a < x \leq b)             \\
+      & = P(X \leq b) - P(X \leq a) \\
+      & = F(b) - F(a)
 \end{align*}
 
 A cumulative distribution function $F$:
 \begin{itemize}
-    \item is non-decreasing: $F(x) \leq F(y)$ for all $x \leq y$
-    \item has limit 0: $F(-\infty) = 0$ on the left
-    \item has limit 1: $F(\infty) = 1$ on the right
+     \item is non-decreasing: $F(x) \leq F(y)$ for all $x \leq y$
+     \item has limit 0: $F(-\infty) = 0$ on the left
+     \item has limit 1: $F(\infty) = 1$ on the right
 \end{itemize}
 
 \subsubsection*{Expected Value}
@@ -48,8 +48,8 @@ Note: Expected value need not be a possible value of $X$.
 For $g: \mathbb{R} \rightarrow \mathbb{R}$:
 
 \begin{align*}
-     & E(g(X))                      \\
-     & = \sum_{i} g(x_i) P(X = x_i)
+      & E(g(X))                      \\
+      & = \sum_{i} g(x_i) P(X = x_i)
 \end{align*}
 
 (provided the sum exists)
@@ -60,7 +60,7 @@ Expectation is linear, so $E(aX + b) = aE(X) + b$ for any constants $a$ and $b$.
 
 The variance tells us how surprised we should be if we observe a value of $X$.
 
-$$ \text{Var}(X) = E((X - E(X))^2) $$
+$$ \text{Var}(X) = E(X^2) - (E(X))^2 $$
 
 \subsubsection*{Standard Deviation}
 
@@ -81,8 +81,8 @@ Special case $n=1$ is called the Bernoulli distribution with parameter $p$. In t
 Let $X \sim \text{Binom}(n,p)$ and $X = 0,1,\dots,n$. Then:
 
 \begin{align*}
-     & P(X = k)                       \\
-     & = \binom{n}{k} p^k (1-p)^{n-k}
+      & P(X = k)                       \\
+      & = \binom{n}{k} p^k (1-p)^{n-k}
 \end{align*}
 
 The Bernouilli($p$) distribution can take on values $0$ or $1$ with properties:
@@ -93,8 +93,8 @@ $$ P(X = 1) = p $$
 \subsubsection*{Newton's Binomial Theorem:}
 
 \begin{align*}
-     & \sum_{k=0}^n \binom{n}{k} a^k b^{n-k} \\
-     & =(a + b)^n
+      & \sum_{k=0}^n \binom{n}{k} a^k b^{n-k} \\
+      & =(a + b)^n
 \end{align*}
 
 \subsubsection*{Expected Value}
@@ -111,7 +111,7 @@ $$ X \sim \text{Poisson}(\lambda) $$
 
 The random variable $X$ is Poisson distributed with parameter $\lambda$ if $\lambda$ is non-negative integer valued and its mass function is:
 
-$$ P(X = k) = e^{-\lambda} \times \frac{\lambda^i}{i!} $$
+$$ P(X = i) = e^{-\lambda} \times \frac{\lambda^i}{i!} $$
 
 \subsubsection*{Poisson Approximation to Binomial}
 
@@ -129,17 +129,17 @@ When is the first success?
 
 $$ X \sim \text{Geom}(p) $$
 
-Suppose that independent trials, each succeeding with probability $p$, are repeated until the first success. The total number $X$ of trials made has the Goemetric($p$) distribution.
+Suppose that independent trials, each succeeding with probability $p$, are repeated until the first success. The total number $X$ of trials made has the Geometric($p$) distribution.
 
 $X$ can take on positive integers, with probabilities:
 
 $$ P(X = i) = (1-p)^{i-1} p $$
 
-The Goemetric random variable is (discrete) memoryless:
+The Geometric random variable is (discrete) memoryless:
 
 \begin{align*}
-     & P(X > n + k | X > n) \\
-     & = P(X > k)
+      & P(X > n + k | X > n) \\
+      & = P(X > k)
 \end{align*}
 
 ... for every $k \geq 1$, $n \geq 0$.

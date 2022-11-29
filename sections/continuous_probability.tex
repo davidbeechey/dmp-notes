@@ -1,4 +1,4 @@
-\section{Conditional Probability}
+\section{Continuous Probability}
 
 \subsection*{Continuous Random Variables}
 
@@ -84,9 +84,9 @@ $$ E(h(X)) = \int_{-\infty}^{\infty} h(x)f(x) dx $$
 Let $X$ be a continuous random variable with PDF $f(x)$ and mean $\mu$. Its variance $\text{Var}(X)$ is the expected value of the squared distance to the mean.
 
 \begin{align*}
-     & \text{Var}(X)                               \\
-     & = E((X-\mu)^2)                              \\
-     & = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx \\
+      & \text{Var}(X)                               \\
+      & = E((X-\mu)^2)                              \\
+      & = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx \\
 \end{align*}
 
 $$ \text{SD}(X) = \sqrt{\text{Var}(X)} $$
@@ -96,9 +96,9 @@ $$ \text{SD}(X) = \sqrt{\text{Var}(X)} $$
 \textbf{Variance Shortcut:}
 
 \begin{align*}
-     & \text{Var}(X)                                                                           \\
-     & = E(X^2) - \mu^2                                                                        \\
-     & = \int_{-\infty}^{\infty} x^2 f(x) dx - \left(\int^{\infty}_{-\infty}x f(x) dx\right)^2 \\
+      & \text{Var}(X)                                                                           \\
+      & = E(X^2) - \mu^2                                                                        \\
+      & = \int_{-\infty}^{\infty} x^2 f(x) dx - \left(\int^{\infty}_{-\infty}x f(x) dx\right)^2 \\
 \end{align*}
 
 \textbf{Chebyshev's Inequality:}
@@ -112,8 +112,8 @@ $$ P(|X-\mu| \geq k\text{SD}(X)) \leq \frac{1}{k^2} $$
 For any functions $h_1(x)$ and $h_2(x)$ and constants $a_1$, $a_2$ and $b$, the expected values of these in linear combinations is the linear combination of the expected values.
 
 \begin{align*}
-     & E(a_1h_1(X) + a_2h_2(X) + b)      \\
-     & = a_1E(h_1(X)) + a_2E(h_2(X)) + b \\
+      & E(a_1h_1(X) + a_2h_2(X) + b)      \\
+      & = a_1E(h_1(X)) + a_2E(h_2(X)) + b \\
 \end{align*}
 
 \textbf{Rescaling:}
@@ -123,3 +123,113 @@ For any constants $a$ and $b$, the mean, variance and standard deviation of $(aX
 $$ E(aX+b) = aE(X) + b $$
 $$ \text{Var}(aX+b) = a^2\text{Var}(X) $$
 $$ \text{SD}(aX+b) = |a|\text{SD}(X) $$
+
+\subsection*{Normal Distribution}
+
+A continuous random variable $X$ has normal (Gaussian) distribution with parameters $\mu$ and $\sigma$ is it has the following PDF:
+
+$$ f(x; \mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$
+
+We write this as $X \sim \text{N}(\mu,\sigma)$.
+
+\subsubsection*{Standard Normal Distribution}
+
+The normal distribution with parameters $\mu = $ and $\sigma = 1$ is the standard normal distribution and a random variable with that distribution is called a standard normal variable, usually names $Z$ and with the following PDF:
+
+$$ f(z) = \frac{1}{\sqrt{2\pi}} e^{-\frac{z^2}{2}} $$
+
+The corresponding CDF is written $\Phi(z)$. (Look up the results of this in a table).
+
+\subsubsection*{Standardizing a Normally Distributed Random Variable}
+
+If continuous random variable $X \sim N(\mu, \sigma)$, then the random variable $Z$ is defined as:
+
+$$ Z = \frac{X-\mu}{\sigma} $$
+
+... and $Z$ has standard normal distribution (i.e. $Z \sim N(0,1)$).
+
+\subsubsection*{Properties}
+
+$$ P(X \leq a) = \Phi\left(\frac{a-\mu}{\sigma}\right) $$
+
+$$ P(a \leq X \leq b) = \Phi\left(\frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) $$
+
+$$ P(X \geq b) = 1 - \Phi\left(\frac{b-\mu}{\sigma}\right) $$
+
+$$ (100p)^{th} \text{ percentile } \eta_p = \mu + \sigma \Phi^{-1}(p) $$
+
+\subsection*{Approximating the Binomial Distribution}
+
+Suppose that $X$ is a binomial random variable counting successes in $n$ trials each with probability $p$ of success. If the distribution is not too skewed, then this can be approximated by the normal distribution with mean $\mu = np$ and $\sigma = \sqrt{npq}$ where $q=1-p$.
+
+$$ P(X \leq x) = B(x;n,p) \approx \Phi\left(\frac{x+0.5-np}{\sqrt{npq}}\right) $$
+
+(This approximation is adequate in practice $np\geq 10$ and $nq \geq 10$).
+
+\subsection*{Exponential Distribution}
+
+A continuous random variable $X$ has exponential distribution with parameter $\lambda$, for some $\lambda > 0$, is it has the following PDF:
+
+$$ f(x; \lambda) = \begin{cases} \lambda e^{-\lambda x} & x > 0 \\ 0 & \text{otherwise} \end{cases} $$
+
+We write this as $X \sim \text{Exp}(\lambda)$.
+
+CDF:
+
+$$ F(x; \lambda) = \begin{cases} 1 - e^{-\lambda x} & x > 0 \\ 0 & \text{otherwise} \end{cases} $$
+
+Mean: $E(X) = \frac{1}{\lambda}$.
+
+Standard Deviation: $\text{SD}(X) = \frac{1}{\lambda}$.
+
+\subsubsection*{Exponential Distribution is Memoryless}
+
+The exponential distribution is memoryless: if $X \sim \text{Exp}(\lambda)$, represents the waiting time until something happens, then as time passes, the amount of time remaining always has the same distribution:
+
+$$ P(X \geq s + t \mid X \geq s) = P(X \geq t) $$
+$$ P(X \leq s + t \mid X \geq s) = P(X \leq t) $$
+$$ P((s+a) \leq X \leq (s+b) \mid X \geq s) = P(a \leq X \leq b) $$
+
+... $\forall s,t,a,b \in \mathbb{R}_{\geq 0}$
+
+\subsubsection*{Poisson Distribution and Exponential Distribution}
+
+Let continuous random variable $T$ be the time in minutes between successive arrivals. and $N$ be the number of arrivals each minute:
+
+If $T\sim \text{Exp}(\lambda)$, then $N \sim \text{Poisson}(\lambda)$.
+
+\subsection*{Transforming a Random Variable}
+
+Let $X$ be a continuous random variable with PDF $f_X(x)$ and CDF $F_X(x)$.
+Suppose $Y=g(X)$ is a transformation giving another continuous random variable $Y$ with PDF $f_Y(y)$ and CDF $F_Y(y)$.
+Suppose $g$ is monotonically increasing (for all possible values $a<b$ of $X$, $G(a) < g(b)$). 
+Then there will be an inverse function $h$ where $X = h(Y)$ and we can calculate as follows:
+
+\begin{align*}
+     F_Y(y) &= P(Y \leq y) \\
+     &= P(g(X)\leq y) \\
+     &= P(X \leq h(y)) \\
+     &= F_X(h(y))
+\end{align*}
+
+If $g$ is monotonically decreasing, then it still has an inverse $h$ but instead:
+
+\begin{align*}
+     F_Y(y) &= P(Y \leq y) \\
+     &= P(g(X)\leq y) \\
+     &= P(X \geq h(y)) \\
+     &= 1 - F_X(h(y))
+\end{align*}
+
+\subsubsection*{Transformed PDF}
+
+Let $X$ be a continuous random variable with PDF $F_X(x)$.
+Suppose $Y=g(X)$ is a transformation giving another random variable $Y$, with PDF $f_Y(y)$.
+Suppose that $g$ is monotonic on the set of all possible values $X$.
+Then there will be an inverse function $X=h(Y)$.
+Suppose also that $h$ has a derivative $h'(y)$ for all the possible values of $Y$. Then we can directly calculate the PDF for $Y$.
+
+$$ f_Y(y) = f_X(h(y)) \cdot \mid h'(y) \mid $$
+
+(taking absolute makes this work for increasing or decreasing)
+

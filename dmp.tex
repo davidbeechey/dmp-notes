@@ -12,6 +12,7 @@
 \documentclass[8pt]{scrartcl} % 11pt font size
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \usepackage[margin=25pt, landscape]{geometry} % Page margins and orientation
 
@@ -21,10 +22,10 @@
 
 \usepackage[ % This block contains information used to annotate the PDF
 colorlinks=false, 
-pdftitle={Cheatsheet}, 
-pdfauthor={John Smith}, 
-pdfsubject={Compilation of useful shortcuts}, 
-pdfkeywords={Random Software, Cheatsheet}
+pdftitle={DMP Notes}, 
+pdfauthor={David Beechey}, 
+pdfsubject={DMP Notes}, 
+pdfkeywords={DMP, Notes, December Exam},
 ]{hyperref}
 
 \setlength{\parindent}{0pt} % Stop paragraph indentation
@@ -34,12 +35,17 @@ pdfkeywords={Random Software, Cheatsheet}
 
 \begin{document}
 
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+
 \begin{multicols*}{4}
     \input{sections/probability}
-    \newpage
     \input{sections/discrete_probability}
-    \newpage
     \input{sections/continuous_probability}
+    \input{sections/joint_probability}
+    \input{sections/conditional_limit_dist}
+    \input{sections/properties_of_relations}
 \end{multicols*}
 
 \end{document}

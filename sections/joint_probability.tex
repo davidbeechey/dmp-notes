@@ -1,0 +1,204 @@
+\section{Joint Probability}
+
+\subsection*{Two Discrete Random Variables}
+
+The joint probability mass function (JPMF) of $X$ and $Y$ is a function $P(x,y)$ defined for each possible pair $(x,y)$ where $X$ may take the value $x$ and $Y$ may take the value $y$.
+
+$$ p(x,y) = P(X=x \text{ and } Y=y) $$
+
+For any set of pairs $A \subseteq \mathbb{R}\times \mathbb{R}$ the probability that $(X,Y)$ lies in $A$ is a sum of pairs:
+
+$$ P((X,Y) \in A) = \sum_{(x,y) \in A} p(x,y) $$
+
+\subsection*{Marginal Probabilities}
+
+If we know that JPMF $p(x,y)$ of $X$ and $Y$ then we can calculate the PMF of each variable individually.
+
+The random variables $X$ and $Y$ have marginal PDFs $p_X(x)$ and $p_Y(y)$ given by summation:
+
+$$ p_X(x) = \sum_{y} p(x,y) $$
+$$ p_Y(y) = \sum_{x} p(x,y) $$
+
+\subsection*{Two Continuous Random Variables}
+
+The joint probability density function (JPDF) of $X$ and $Y$ is a function $f(x,y)$ such that for any rectangle $A = \{ (x,y) \mid a \leq x \leq b, c \leq y \leq d \}$ we have the following:
+
+\begin{align*}
+  P((X,Y) \in A) & = P(a \leq X \leq b, c \leq Y \leq d) \\
+                 & = \int_a^b \int_c^d f(x,y) dx dy       \\
+                 & = \int_c^d \int_a^b f(x,y) dx dy
+\end{align*}
+
+\subsection*{Marginal Probabilities}
+
+Continuous random variables $X$ and $Y$ have marginal probability density functions $f_X(x)$ and $f_y(y)$ given by integration:
+
+$$ f_X(x) = \int_{-\infty}^{\infty} f(x,y) dy $$
+$$ f_Y(y) = \int_{-\infty}^{\infty} f(x,y) dx $$
+
+(Often the values of $X$ or $Y$ will be known to lie within a particular interval, with probability density $0$ outside. It's then possible to restrict the range of integration to just that integral).
+
+\subsection*{Independent Random Variables}
+
+Two random variables $X$ and $Y$ are \textbf{independent} if for every pair of values $x$ and $y$ we have:
+
+$$ p(x,y) = p_X(x) \cdot p_Y(y) \text{ (discrete)} $$
+$$ p(x,y) = f_X(x) \cdot f_Y(y) \text{ (continuous)} $$
+
+Alternatively, if these equations fail for some $(x,y)$ then $X$ and $Y$ are \textbf{dependent}.
+
+\subsection*{More Than Two Random Variables}
+
+If $X_1$, $X_2$, ..., $X_n$, are all discrete random variables then their JPMF is:
+
+\begin{align*}
+    & p(x_1,x_2,...,x_n)                            \\
+  = & P(X_1=x_1 \cap X_2=x_2 \cap ... \cap X_n=x_n)
+\end{align*}
+
+If these are continuous random variables then their JPDF is such that for $n$ intervals $[a_1,b_1], [a_2,b_2],...,[a_n,b_n]$ we have:
+
+\begin{align*}
+    & P(a_1 \leq x_1 \leq b_1,...,a_n\leq x_n \leq b_n)                                      \\
+  = & \int_{a_1}^{b_2}\left(...\left(\int_{a_n}^{b_n}f(x_1,...,x_n)dx_n\right)...\right)dx_1
+\end{align*}
+
+\subsection*{Expected Values}
+
+If $X$ and $Y$ are jointly distributed random variables and $h(X,Y)$ is some real-valued function, then $h(X,Y)$ is also a random variable.
+
+For jointly distributed random variables $X$ and $Y$ the expected value of a function $h(X,Y)$ is given by:
+
+\begin{align*}
+    & \mu_{h(X,Y)}                                                                                                                                                    \\
+  = & E[h(X,Y)]                                                                                                                                                       \\
+  = & \begin{cases} \sum_{x,y} h(x,y) p(x,y) & \text{discrete} \\ \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} h(x,y) f(x,y) dx dy & \text{continuous} \end{cases}
+\end{align*}
+
+\subsubsection*{Linearity of Expectation}
+
+\begin{align*}
+    & E(a_1\cdot h_1(X,Y) + a_2\cdot h_2(X,Y) + b) \\
+  = & a_1 E(h_1(X,Y)) + a_2 E(h_2(X,Y)) + b
+\end{align*}
+
+... where $X$, $Y$ are random variables, $h_1$, $h_2$ are functions of $X$ and $Y$, and $a_1$, $a_2$ and $b$ are constants.
+
+Given two independent random variables $X$,$Y$ and a function $h(X,Y)=g_1(X)\cdot g_2(Y)$ for some functions $g_1$ and $g_2$ then:
+
+\begin{align*}
+    & E(h(X,Y))                 \\
+  = & E(g_1(X)\cdot g_2(Y))     \\
+  = & E(g_1(X)) \cdot E(g_2(Y)) \\
+\end{align*}
+
+\subsection*{Covariance}
+
+The covariance between two random variables $X$ and $Y$ measures the extent to which they vary together (if positive) or in opposition (if negative).
+
+\begin{align*}
+    & Cov(X,Y)                                                                                                                                                                 \\
+  = & E((X-\mu_X)(Y-\mu_Y))                                                                                                                                                    \\
+  = & \begin{cases} \sum_{x,y} (x-\mu_X)(y-\mu_Y) p(x,y) & \text{d.} \\ \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (x-\mu_X)(y-\mu_Y) f(x,y) dx dy & \text{c.} \end{cases}
+\end{align*}
+
+\subsubsection*{Properties of Covariance}
+
+For any two random variables $X$ and $Y$ the following hold:
+
+$$ Cov(X,Y) = Cov(Y,X) $$
+$$ Cov(X,X) = Var(X) $$
+$$ Cov(X,Y) = E(XY) - \mu_X\cdot \mu_Y $$
+
+If $Z$ is another random variable and $a,b,c,d$ are constants then we also have:
+
+$$ Cov(aX+bY+c,Z) = a\cdot Cov(X,Z) + b\cdot Cov(Y,Z) $$
+$$ Cov(aX+b, cY+d) = acCov(X,Y) $$
+
+\subsection*{Correlation Coefficient}
+
+The correlation coefficient of two random variables $X$ and $Y$ is defined as:
+
+$$ \rho_{X,Y} = Corr(X,Y) = \frac{Cov(X,Y)}{\sigma_X \cdot \sigma_Y} $$
+
+\begin{itemize}
+  \item If $\rho_{X,Y} = 0$ then $X$ and $Y$ are uncorrelated (not linearly correlated).
+  \item If $\rho_{X,Y} > 0$ then $X$ and $Y$ are positively correlated.
+  \item If $\rho_{X,Y} < 0$ then $X$ and $Y$ are negatively correlated.
+\end{itemize}
+
+\subsubsection*{Proposition}
+
+$$ Corr(X,Y) = Corr(Y,X) $$
+$$ Corr(X,X) = 1 $$
+$$ -1 \leq Corr(X,Y) \leq 1 $$
+
+If $a,b,c,d$ are constants with $ac>0$ then:
+
+$$ Corr(aX+b, cY+d) = Corr(X,Y) $$
+(scaling and translation of $X$ and $Y$ do not affect their correlation)
+
+\subsection*{Correlation and Independence}
+
+Random variables $X$ and $Y$ are uncorrelated if and only if $E(XY)=\mu_X\cdot \mu_Y$.
+
+If $X$ and $Y$ are independent then they are  also uncorrelated, but the reverse is not necessarily true.
+
+$\rho_{X,Y} = 1 \text{ or } -1$ if and only if $Y=aX+b$ for some constants $a$ and $b$ with $a\neq 0$.
+
+\subsection*{Linear Combinations}
+
+If $X_1+X_2+...+X_n$ are random variables then a linear combination is anything of the form $a_1X_1+a_2X_2+...+A_nX_n$ for constants $a_1,a_2,...,a_n,b$.
+
+\begin{align*}
+    & E(a_1X_1+a_2X_2+...+a_nX_n+b)       \\
+  = & a_1E(X_1)+a_2E(X_2)+...+a_nE(X_n)+b
+\end{align*}
+
+\begin{align*}
+    & Var(a_1X_1+a_2X_2+...+A_nX_n+b)                \\
+  = & \sum_{i=1}^n \sum_{j=1}^n a_i a_j Cov(X_i,X_j)
+\end{align*}
+
+\begin{align*}
+    & Var(aX+bY)                             \\
+  = & a^2 Var(X) + b^2 Var(Y) + 2ab Cov(X,Y)
+\end{align*}
+
+If the random variables are independent then we also have:
+
+\begin{align*}
+    & Var(a_1X_1+a_2X_2+...+A_nX_n+b)                  \\
+  = & a_1^2 Var(X_1)+a_2^2 Var(X_2)+...+a_n^2 Var(X_n)
+\end{align*}
+
+\begin{align*}
+    & SD(a_1X_1+a_2X_2+...+A_nX_n+b)                          \\
+  = & \sqrt{a_1^2 Var(X_1)+a_2^2 Var(X_2)+...+a_n^2 Var(X_n)}
+\end{align*}
+
+\begin{align*}
+    & Var(X+Y)                \\
+  = & Var(X)+Var(Y)+2Cov(X,Y) \\
+\end{align*}
+
+\subsection*{Sum of Random Variables}
+
+Suppose $X$ and $Y$ are continuous random variables with JPDF $f(x,y)$. Then their sum $W=X+Y$ has the PDF:
+
+$$ f_W(w) = \int_{-\infty}^{\infty} f(x,w-x) dx $$
+
+If $X$ and $Y$ are independent, then $f(x,y) = f_X(x)\cdot f_Y(y)$ for marginal PDFs $f_X(x)$ and $f_Y(y)$, giving the following:
+
+$$ f_W(w) = \int_{-\infty}^{\infty} f_X(x) f_Y(w-x) dx $$
+
+\subsection*{Sum of Standard Distributions}
+
+\subsubsection*{Sum of Independent Poisson}
+
+If $X_1,X_2,...,X_n$ are independent Poisson random variables with means $\mu,\mu_2,...,\mu_n$ then their sum $Y=X_1+X_2+...+X_n$ also has a Poisson distribution, with mean $\mu+\mu_2+...+\mu_n$.
+
+\subsubsection*{Sum of Independent Normal}
+
+If $N_1,N_2,...,N_n$ are independent normal random variables with means $\mu,\mu_2,...,\mu_n$ and standard deviations $\sigma,\sigma_2,...,\sigma_n$ then their sum $Y=N_1+N_2+...+N_n$ also has a normal distribution, with mean $\mu+\mu_2+...+\mu_n$ and standard deviation $\sqrt{\sigma^2+\sigma_2^2+...+\sigma_n^2}$.
+
