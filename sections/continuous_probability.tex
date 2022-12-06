@@ -26,6 +26,9 @@ $$ f(x; a,b) = \begin{cases} \frac{1}{b-a} & a \leq x \leq b \\ 0 & \text{otherw
 
 We write this as $X \sim \text{Unif}(a,b)$.
 
+$$ E(X) = \frac{a+b}{2} $$
+$$ \text{Var}(X) = \frac{(b-a)^2}{12} $$
+
 \subsubsection*{Cumulative Distribution Function}
 
 For a continuous random variable $X$ with PDF $f(x)$, the cumulative distribution function (CDF) is given by:
@@ -84,9 +87,9 @@ $$ E(h(X)) = \int_{-\infty}^{\infty} h(x)f(x) dx $$
 Let $X$ be a continuous random variable with PDF $f(x)$ and mean $\mu$. Its variance $\text{Var}(X)$ is the expected value of the squared distance to the mean.
 
 \begin{align*}
-      & \text{Var}(X)                               \\
-      & = E((X-\mu)^2)                              \\
-      & = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx \\
+       & \text{Var}(X)                               \\
+       & = E((X-\mu)^2)                              \\
+       & = \int_{-\infty}^{\infty} (x-\mu)^2 f(x) dx \\
 \end{align*}
 
 $$ \text{SD}(X) = \sqrt{\text{Var}(X)} $$
@@ -96,9 +99,9 @@ $$ \text{SD}(X) = \sqrt{\text{Var}(X)} $$
 \textbf{Variance Shortcut:}
 
 \begin{align*}
-      & \text{Var}(X)                                                                           \\
-      & = E(X^2) - \mu^2                                                                        \\
-      & = \int_{-\infty}^{\infty} x^2 f(x) dx - \left(\int^{\infty}_{-\infty}x f(x) dx\right)^2 \\
+       & \text{Var}(X)                                                                           \\
+       & = E(X^2) - \mu^2                                                                        \\
+       & = \int_{-\infty}^{\infty} x^2 f(x) dx - \left(\int^{\infty}_{-\infty}x f(x) dx\right)^2 \\
 \end{align*}
 
 \textbf{Chebyshev's Inequality:}
@@ -112,8 +115,8 @@ $$ P(|X-\mu| \geq k\text{SD}(X)) \leq \frac{1}{k^2} $$
 For any functions $h_1(x)$ and $h_2(x)$ and constants $a_1$, $a_2$ and $b$, the expected values of these in linear combinations is the linear combination of the expected values.
 
 \begin{align*}
-      & E(a_1h_1(X) + a_2h_2(X) + b)      \\
-      & = a_1E(h_1(X)) + a_2E(h_2(X)) + b \\
+       & E(a_1h_1(X) + a_2h_2(X) + b)      \\
+       & = a_1E(h_1(X)) + a_2E(h_2(X)) + b \\
 \end{align*}
 
 \textbf{Rescaling:}
@@ -134,7 +137,7 @@ We write this as $X \sim \text{N}(\mu,\sigma)$.
 
 \subsubsection*{Standard Normal Distribution}
 
-The normal distribution with parameters $\mu = $ and $\sigma = 1$ is the standard normal distribution and a random variable with that distribution is called a standard normal variable, usually names $Z$ and with the following PDF:
+The normal distribution with parameters $\mu = 0$ and $\sigma = 1$ is the standard normal distribution and a random variable with that distribution is called a standard normal variable, usually named $Z$ and with the following PDF:
 
 $$ f(z) = \frac{1}{\sqrt{2\pi}} e^{-\frac{z^2}{2}} $$
 
@@ -202,23 +205,23 @@ If $T\sim \text{Exp}(\lambda)$, then $N \sim \text{Poisson}(\lambda)$.
 
 Let $X$ be a continuous random variable with PDF $f_X(x)$ and CDF $F_X(x)$.
 Suppose $Y=g(X)$ is a transformation giving another continuous random variable $Y$ with PDF $f_Y(y)$ and CDF $F_Y(y)$.
-Suppose $g$ is monotonically increasing (for all possible values $a<b$ of $X$, $G(a) < g(b)$). 
+Suppose $g$ is monotonically increasing (for all possible values $a<b$ of $X$, $G(a) < g(b)$).
 Then there will be an inverse function $h$ where $X = h(Y)$ and we can calculate as follows:
 
 \begin{align*}
-     F_Y(y) &= P(Y \leq y) \\
-     &= P(g(X)\leq y) \\
-     &= P(X \leq h(y)) \\
-     &= F_X(h(y))
+      F_Y(y) & = P(Y \leq y)    \\
+             & = P(g(X)\leq y)  \\
+             & = P(X \leq h(y)) \\
+             & = F_X(h(y))
 \end{align*}
 
 If $g$ is monotonically decreasing, then it still has an inverse $h$ but instead:
 
 \begin{align*}
-     F_Y(y) &= P(Y \leq y) \\
-     &= P(g(X)\leq y) \\
-     &= P(X \geq h(y)) \\
-     &= 1 - F_X(h(y))
+      F_Y(y) & = P(Y \leq y)    \\
+             & = P(g(X)\leq y)  \\
+             & = P(X \geq h(y)) \\
+             & = 1 - F_X(h(y))
 \end{align*}
 
 \subsubsection*{Transformed PDF}

@@ -9,16 +9,14 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[8pt]{scrartcl} % 11pt font size
+\documentclass[8pt]{scrartcl} % 8pt font size
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{multicol} % Required for multicolumn layout
+\usepackage{color} % Required for color customization
 
 \usepackage[margin=25pt, landscape]{geometry} % Page margins and orientation
-
-\usepackage{multicol}
-
-\usepackage{color} % Required for color customization
 
 \usepackage[ % This block contains information used to annotate the PDF
 colorlinks=false, 
@@ -29,7 +27,7 @@ pdfkeywords={DMP, Notes, December Exam},
 ]{hyperref}
 
 \setlength{\parindent}{0pt} % Stop paragraph indentation
-% \setlength{\parskip}{5pt} % Paragraph spacing
+\pagenumbering{arabic} % Page numbering
 
 %----------------------------------------------------------------------------------------
 

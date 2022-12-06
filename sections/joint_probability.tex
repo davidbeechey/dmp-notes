@@ -25,7 +25,7 @@ The joint probability density function (JPDF) of $X$ and $Y$ is a function $f(x,
 
 \begin{align*}
   P((X,Y) \in A) & = P(a \leq X \leq b, c \leq Y \leq d) \\
-                 & = \int_a^b \int_c^d f(x,y) dx dy       \\
+                 & = \int_a^b \int_c^d f(x,y) dx dy      \\
                  & = \int_c^d \int_a^b f(x,y) dx dy
 \end{align*}
 
@@ -43,7 +43,7 @@ $$ f_Y(y) = \int_{-\infty}^{\infty} f(x,y) dx $$
 Two random variables $X$ and $Y$ are \textbf{independent} if for every pair of values $x$ and $y$ we have:
 
 $$ p(x,y) = p_X(x) \cdot p_Y(y) \text{ (discrete)} $$
-$$ p(x,y) = f_X(x) \cdot f_Y(y) \text{ (continuous)} $$
+$$ f(x,y) = f_X(x) \cdot f_Y(y) \text{ (continuous)} $$
 
 Alternatively, if these equations fail for some $(x,y)$ then $X$ and $Y$ are \textbf{dependent}.
 
@@ -97,8 +97,8 @@ Given two independent random variables $X$,$Y$ and a function $h(X,Y)=g_1(X)\cdo
 The covariance between two random variables $X$ and $Y$ measures the extent to which they vary together (if positive) or in opposition (if negative).
 
 \begin{align*}
-    & Cov(X,Y)                                                                                                                                                                 \\
-  = & E((X-\mu_X)(Y-\mu_Y))                                                                                                                                                    \\
+    & Cov(X,Y)                                                                                                                                                                  \\
+  = & E((X-\mu_X)(Y-\mu_Y))                                                                                                                                                     \\
   = & \begin{cases} \sum_{x,y} (x-\mu_X)(y-\mu_Y) p(x,y) & \text{d.} \\ \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (x-\mu_X)(y-\mu_Y) f(x,y) dx dy & \text{c.} \end{cases}
 \end{align*}
 

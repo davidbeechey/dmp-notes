@@ -45,7 +45,7 @@
 \begin{theorem}[8.4.2 from Epp page 528]
     Let $a,b,c,d$ and $n$ be integers with $n>1$, and suppose:
     $$ a \equiv c \pmod n $$
-    and 
+    and
     $$ b \equiv d \pmod n $$
     Then:
     \begin{enumerate}
@@ -78,12 +78,18 @@
 \end{corollary}
 
 \begin{corollary}[8.4.7 from Epp page 535]
-    If $a$ and $n$ are relatively prime integers, then $a$ has an inverse modulo $n$.For all integers $a$ and $n$, if $\text{gcd}(a,n)=1$, then there exists an integer $s$ such that $as\equiv 1 \pmod n$, and so $s$ is an inverse for $a$ modulo $n$.   
+    If $a$ and $n$ are relatively prime integers, then $a$ has an inverse modulo $n$.For all integers $a$ and $n$, if $\text{gcd}(a,n)=1$, then there exists an integer $s$ such that $as\equiv 1 \pmod n$, and so $s$ is an inverse for $a$ modulo $n$.
 \end{corollary}
 
 \subsection*{RSA Cryptography}
 
-\subsubsection*{Euclid's Lemma}
+To encrypt a message, we pick large prime numbers $p$ and $q$, and an integer $e$ that is relatively prime to $(p-1)(q-1)$ (i.e. $\text{gcd}(e,(p-1)(q-1))=1$). $(pq,e)$ is the public key, but the individual values of $p$ and $q$ are not shared. $C$ is the ciphertext and $M$ is the plaintext.
+
+$$ C = M^e \pmod {pq} $$
+
+To decrypt the message, we must find $d$ such that $d$ is the positive inverse of $e$ modulo $(p-1)(q-1)$. $(pq,d)$ is the private key.
+
+$$ M = C^d \pmod {pq} $$
 
 \begin{theorem}[8.4.8 (Euclid's Lemma) from Epp page 539]
     For all integers $a$, $b$ and $c$, if $\text{gcd}(a,c)=1$ and $a\mid bc$, then $a\mid b$.
@@ -92,8 +98,6 @@
 \begin{theorem}[8.4.9 (Cancellation Theorem for Modular Congruence) from Epp page 539]
     For all integers $a,b,c$, and $n$ with $n>1$, if $\text{gcd}(c,n)=1$ and $ac \equiv bc \pmod n$, then $a \equiv b \pmod n$.
 \end{theorem}
-
-\subsubsection*{Fermat's Little Theorem}
 
 \begin{theorem}[8.4.10 (Fermat's Little Theorem) from Epp page 540]
     If $p$ is any prime number and $a$ is any integer such that $p \nmid a$, then $a^{p-1} \equiv 1 \pmod p$.
