@@ -1,6 +1,6 @@
 \section{Conditional and Limit Distributions}
 
-\subsection*{Conditional Distribution Functions}
+\subsection{Conditional Distribution Functions}
 
 Let $X$ and $Y$ be discrete random variables with joint probability mass function $p(x,y)$ and marginal $p_X(x)$ for $X$. Then the conditional probability mass function (CPMF) of $Y$ given $X$ is defined as follows:
 
@@ -10,7 +10,7 @@ For continuous random variables $X$ and $Y$ with JPDF $f(x,y)$ and $X$ marginal 
 
 $$ f_{Y\mid X}(y\mid x) = \frac{f(x,y)}{f_X(x)} $$
 
-\subsection*{Independence}
+\subsection{Independence}
 
 Two discrete random variables $X$ and $Y$ are independent iff the conditional PMF of $X$ is the same as its marginal PMF; or similarly for $Y$.
 
@@ -30,7 +30,7 @@ The same result holds for continuous random variables and their conditional and 
 
 (For independent random variables, conditional probabilities are the same as unconditional ones).
 
-\subsection*{Conditional Expectation and Variance}
+\subsection{Conditional Expectation and Variance}
 
 For discrete random variables $X$ and $Y$, the conditional mean/expectation of $Y$ given $X$ is defined from the probability mass $p_{Y\mid X}(y\mid x)$:
 
@@ -64,7 +64,7 @@ In particular, we can calculate the conditional variance of $Y$ given $X$:
                          & = E(Y^2\mid X=x) - \mu_{Y\mid X=x}^2 \\
 \end{align*}
 
-\subsection*{Law of Expectation and Variance}
+\subsection{Law of Expectation and Variance}
 
 For random variables $X$ and $Y$, the conditional mean and variance of $Y$ given $X$ are themselves both random variables. Each has its own distribution, mean, and variance, with the following properties:
 
@@ -76,9 +76,9 @@ $$ E(\text{Var}(Y\mid X)) = \text{Var}(Y)$$
 
 (These equations are helpful when the distribution of $Y$ is only known by its conditional distribution on $X$).
 
-\subsection*{The Central Limit Theorem}
+\subsection{The Central Limit Theorem}
 
-\subsubsection*{Random Samples}
+\subsubsection{Random Samples}
 
 A set of random variables $X_1, X_2, \ldots, X_n$ are independent and identically distributed IID, if:
 
@@ -89,14 +89,14 @@ A set of random variables $X_1, X_2, \ldots, X_n$ are independent and identicall
 
 We call such a set a random sample of size $n$ from this distribution.
 
-\subsubsection*{Total and Mean}
+\subsubsection{Total and Mean}
 
 For a random sample $X_1,X_2,\ldots,X_n$ of size $n$ the sample total $T$ and sample mean $\bar{X}$ are two random variables defined from the $X_i$:
 
 $$ T = X_1 + X_2 + \cdots + X_n = \sum^n_{i=1} X_i $$
 $$ \bar{X} = \frac{X_1+X_2+\ldots +X_n}{n} = \frac{T}{n} $$
 
-\subsubsection*{Properties of Sample Total and Mean}
+\subsubsection{Properties of Sample Total and Mean}
 
 Let $T$ and $\bar{X}$ be the sample total and mean of a random sample $X_1,X_2,\ldots,X_n$ of size $n$ from a distribution with mean $\mu$ and variance $\sigma^2$.
 Then they have the following properties:
@@ -112,7 +112,7 @@ Then they have the following properties:
     \item If the $X_i$ are normally distributed, then so is $\bar{X}$.
 \end{itemize}
 
-\subsubsection*{Sampling Normal Distributions}
+\subsubsection{Sampling Normal Distributions}
 
 Let $X_1,X_2,\ldots,X_n$ be a random sample of size $n$ from a normal distribution where each $X_i$ has a mean $\mu$ and standard deviation $\sigma$.
 Then:
@@ -120,7 +120,7 @@ Then:
 $$ X_i \sim N(\mu,\sigma) $$
 $$ \bar{X} \sim N(\mu,\frac{\sigma}{\sqrt{n}}) $$
 
-\subsection*{The Central Limit Theorem}
+\subsection{The Central Limit Theorem}
 
 Let $X_1,X_2,\ldots,X_n$ be a random sample of size $n$ from a distribution where each $X_i$ has mean $\mu$ and standard deviation $\sigma$. In the limit as $n\to \infty$ the sample total $T$ and sample mean $\bar{X}$ have normal distributions:
 
@@ -142,14 +142,14 @@ $$"\lim_{n\to\infty}\bar{X}\sim N(\mu,\sigma^2/n)"$$
 
 Here $Z\sim N(0,1)$ is a standard normal variable. We say that random  variables $T$ and $\bar{X}$ are asymptotically normal.
 
-\subsubsection*{Sampling Arbitrary Distributions}
+\subsubsection{Sampling Arbitrary Distributions}
 
 Let $X_1, X_2, \ldots, X_n$ be a random sample of IID variables, each with mean $\mu$ and standard deviation $\sigma$.
 Then as $n$ becomes large the random variable $\bar{X}$ approaches a normal distribution.
 
 $$"\lim_{n\to\infty}\bar{X}\sim N(\mu,\sigma^2/n)"$$
 
-\subsection*{The Law of Large Numbers}
+\subsection{The Law of Large Numbers}
 
 Let $X_1,X_2,\ldots,X_n$ be a random sample of size $n$ from a distribution where each $X_i$ has mean $\mu$ and standard deviation $\sigma$.
 In the limit as $n\to \infty$ the sample mean $\bar{X}$ converges to $\mu$.

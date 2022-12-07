@@ -2,7 +2,7 @@
 
 \section{Properties of Relations}
 
-\subsection*{Equivalence Relations}
+\subsection{Equivalence Relations}
 
 \begin{definition}[Epp. page 508]
     Let $A$ be a set and $R$ a relation on $A$. $R$ is an \textbf{equivalence relation} if, and only if, $R$ is reflexive, symmetric and transitive.
@@ -13,14 +13,14 @@
     $$ [a] = \{x\in A \mid  x R a\} $$
 \end{definition}
 
-\subsection*{Congruence}
+\subsection{Congruence}
 
 \begin{definition}[Epp. page 518]
     Let $m$ and $n$ be integers and let $d$ be a positive integer. We say that \textbf{$m$ is congruent to $n$ modulo $d$} and write:
     $$ m \equiv n \pmod{d} \iff 3 \mid (m-n) $$
 \end{definition}
 
-\subsection*{Modular Equivalences}
+\subsection{Modular Equivalences}
 
 \begin{theorem}[8.4.1 from Epp. page 526]
     Let $a$, $b$ and $n$ be any integers and suppose $n>1$. The following statements are all equivalent:
@@ -40,7 +40,7 @@
     $$ [a] = \{m\in \mathbb{Z} \mid m = a + kn \text{ for some integer } k \} $$
 \end{theorem}
 
-\subsection*{Modular Arithmetic}
+\subsection{Modular Arithmetic}
 
 \begin{theorem}[8.4.2 from Epp page 528]
     Let $a,b,c,d$ and $n$ be integers with $n>1$, and suppose:
@@ -56,14 +56,14 @@
     \end{enumerate}
 \end{theorem}
 
-\subsection*{Euclidean Algorithm}
+\subsection{Euclidean Algorithm}
 
 \begin{theorem}[8.4.5 from Epp page 532]
     For all integers $a$ and $b$, not both zero, if $d=\text{gcd}(a,b)$, then there exist integers $s$ and $t$ such that:
     $$ as + bt = d $$
 \end{theorem}
 
-\subsection*{Inverse Modulo $n$}
+\subsection{Inverse Modulo $n$}
 
 \begin{definition}[Epp page 534]
     Given any integer $a$ and any positive integer $n$, if there exists an integer $s$ such that $as \equiv 1 \pmod n$, then $s$ is called \textbf{an inverse for $a$ modulo $n$}.
@@ -81,7 +81,7 @@
     If $a$ and $n$ are relatively prime integers, then $a$ has an inverse modulo $n$.For all integers $a$ and $n$, if $\text{gcd}(a,n)=1$, then there exists an integer $s$ such that $as\equiv 1 \pmod n$, and so $s$ is an inverse for $a$ modulo $n$.
 \end{corollary}
 
-\subsection*{RSA Cryptography}
+\subsection{RSA Cryptography}
 
 To encrypt a message, we pick large prime numbers $p$ and $q$, and an integer $e$ that is relatively prime to $(p-1)(q-1)$ (i.e. $\text{gcd}(e,(p-1)(q-1))=1$). $(pq,e)$ is the public key, but the individual values of $p$ and $q$ are not shared. $C$ is the ciphertext and $M$ is the plaintext.
 

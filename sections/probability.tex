@@ -1,10 +1,10 @@
 \section{Probability}
 
-\subsection*{Counting}
+\subsection{Counting}
 
 If an experiment has $n$ outcomes, and another experiment has $m$ outcomes then the two experiments jointly have $n\times m$ outcomes.
 
-\subsection*{Permutations}
+\subsection{Permutations}
 
 Let $H = \left\{h_1, \dots, h_n\right\}$ be a set of $n$ different objects. The permutations of $H$ are the different orders in which you can write all of its elements.
 
@@ -12,25 +12,25 @@ $$ n! $$
 
 $ 0! = 1 $ (special case)
 
-\subsection*{Permutations with Repetitions}
+\subsection{Permutations with Repetitions}
 
 Let $H = \left\{h_1...h_1,h_2...h_2,...,h_r...h_r \right\}$ be a set of $R$ different types of \textbf{repeated} objects: $n_1$ many of $h_1$, $n_2$ of $h_2$, \dots, $n_r$ of $h_r$. The \textit{permutations with repetitions} of $H$ are the different orders in which you can write all of its elements.
 
 $$ \frac{n!}{n_1! \times n_2! \times \ldots \times n_r!} $$
 
-\subsection*{$k$-Permutations}
+\subsection{$k$-Permutations}
 
 Let $H = \left\{h_1, h_2, \dots, h_n\right\}$ be a set of $n$ different objects. The $k$-permutations of $H$ are the different ways in which one can pick and write $k$ of its elements \textbf{in order}.
 
 $$ P_{n,k} = \frac{n!}{(n-k)!} $$
 
-\subsection*{$k$-Permutations with Repetitions}
+\subsection{$k$-Permutations with Repetitions}
 
 Let $H={h_1\ldots,h_2\ldots,\ldots,h_r\ldots}$ be a set of $r$ different types of \textbf{repeated} objects, \textbf{each of infinite supply}. The \textit{$k$-permutations with repetitions} of $H$ are the different order in which one can write an ordered sequence of length $k$ using the elements of $H$.
 
 $$ r^k $$
 
-\subsection*{$k$-Combinations}
+\subsection{$k$-Combinations}
 
 Let $H = \left\{h_1, h_2, \dots, h_n\right\}$ be a set of $n$ different objects. The $k$-combinations of $H$ are the different ways in which one can pick and write $k$ of its elements \textbf{without order}.
 
@@ -40,80 +40,80 @@ $$ \binom{n}{k} = \frac{n!}{k!(n-k)!} $$
 
 Note that this is just the $k$-permutations divided by $k!$.
 
-\subsection*{Events}
+\subsection{Events}
 
 A mathematical model for experiments:
 
 \begin{itemize}
-      \item Sample space: $\Omega$ (set of all possible outcomes)
-      \item An event is a collection of possible outcomes $E \subseteq \Omega$
+    \item Sample space: $\Omega$ (set of all possible outcomes)
+    \item An event is a collection of possible outcomes $E \subseteq \Omega$
 \end{itemize}
 
 We can use sets and subsets and logic to represent events.
 
-\subsection*{Axioms of Probability}
+\subsection{Axioms of Probability}
 
 The probability $P$ on a sample space $\Omega$ assigns numbers to events of $\Omega$ in such a way that:
 
 \begin{enumerate}
-      \item The probability of an event is non-negative (i.e. $P(E) \geq 0$)
-      \item The probability of the entire sample space is 1 (i.e. $P(\Omega) = 1$)
-      \item For countable many mutually exclusive events $E_1, E_2, \dots$:
+    \item The probability of an event is non-negative (i.e. $P(E) \geq 0$)
+    \item The probability of the entire sample space is 1 (i.e. $P(\Omega) = 1$)
+    \item For countable many mutually exclusive events $E_1, E_2, \dots$:
 \end{enumerate}
 
 $$ P\left(\bigcup_{i} E_i\right) = \sum_{i} P(E_i) $$
 
-\subsubsection*{Proposition}
+\subsubsection{Proposition}
 
 For any event: $P(\bar{E}) = 1 - P(E)$
 
-\subsubsection*{Corollary}
+\subsubsection{Corollary}
 
 We have that $P(\emptyset) = P(\bar{\Omega}) = 1 - P(\Omega) = 0$
 
 For any event, $P(E) = 1 - P(\bar{e}) \leq 1$
 
-\subsubsection*{Proposition}
+\subsubsection{Proposition}
 
 For any two events:
 
 \begin{align*}
-       & P(E \cup F)                 \\
-       & = P(E) + P(F) - P(E \cap F) \\
+     & P(E \cup F)                 \\
+     & = P(E) + P(F) - P(E \cap F) \\
 \end{align*}
 
-\subsubsection*{Boole's Inequality}
+\subsubsection{Boole's Inequality}
 
 For any events $E_1, E_2, \dots, E_n$:
 
 $$ P\left(\bigcup_{i=1}^{n} E_i\right) \leq \sum_{i=1}^{n} P(E_i) $$
 
-\subsection*{Inclusion-Exclusion Principle}
+\subsection{Inclusion-Exclusion Principle}
 
 For any events $E$, $F$, and $G$:
 
 \begin{align*}
-       & P(E \cup F \cup G)                 \\
-       & = P(E) + P(F) + P(G) - P(E \cap F) \\
-       & - P(E \cap G) - P(F \cap G)        \\
-       & + P(E \cap F \cap G)               \\
+     & P(E \cup F \cup G)                 \\
+     & = P(E) + P(F) + P(G) - P(E \cap F) \\
+     & - P(E \cap G) - P(F \cap G)        \\
+     & + P(E \cap F \cap G)               \\
 \end{align*}
 
-\subsubsection*{Proposition}
+\subsubsection{Proposition}
 
 If $E \subseteq F$, then $P(F-E) = P(F) - P(E)$.
 
-\subsubsection*{Corollary}
+\subsubsection{Corollary}
 
 If $E \subseteq F$, then $P(E) \leq P(F)$.
 
-\subsection*{Equally Likely Outcomes}
+\subsection{Equally Likely Outcomes}
 
 If all outcomes are equally likely, then the probability of any event is the number of outcomes in the event divided by the number of outcomes in the sample space.
 
 $$ P(w) = \frac{1}{\|\Omega\|} \forall w \in \Omega $$
 
-\subsection*{Conditional Probability}
+\subsection{Conditional Probability}
 
 Let $F$ be an event with $P(F) > 0$. The conditional probability of $E$ given $F$ is:
 
@@ -123,58 +123,58 @@ $$ P(E \cap F) = P(E \mid F)P(F) $$
 
 $$ P(E|F) = \frac{P(E \cap F)}{P(F)} $$
 
-\subsubsection*{Axioms of Conditional Probability}
+\subsubsection{Axioms of Conditional Probability}
 
 \begin{enumerate}
-      \item Conditional probability is non-negative: $P(E|F) \geq 0$
-      \item Conditional probability of sample space is one: $P(\Omega|F) = 1$
-      \item For countably many mutually exclusive events $E_1, E_2, \dots$:
+    \item Conditional probability is non-negative: $P(E|F) \geq 0$
+    \item Conditional probability of sample space is one: $P(\Omega|F) = 1$
+    \item For countably many mutually exclusive events $E_1, E_2, \dots$:
 \end{enumerate}
 
 $$ P\left(\bigcup_{i} E_i|F\right) = \sum_{i} P(E_i|F) $$
 
-\subsubsection*{Corollary}
+\subsubsection{Corollary}
 
 \begin{enumerate}
-      \item $P(\bar{E}|F) = 1 - P(E|F)$
-      \item $P(\emptyset|F) = 0$
-      \item $P(E|F) = 1 - P(\bar{E}|F) \leq 1$
-      \item $P(E \cup G|F) = P(E|F) + P(G|F) - P(E \cap G|F)$
-      \item If $E \subseteq G$, then $P(G-E|F)=P(G|F)-P(E|F)$
-      \item If $E \subseteq G$, then $P(E|F) \leq P(G|F)$
+    \item $P(\bar{E}|F) = 1 - P(E|F)$
+    \item $P(\emptyset|F) = 0$
+    \item $P(E|F) = 1 - P(\bar{E}|F) \leq 1$
+    \item $P(E \cup G|F) = P(E|F) + P(G|F) - P(E \cap G|F)$
+    \item If $E \subseteq G$, then $P(G-E|F)=P(G|F)-P(E|F)$
+    \item If $E \subseteq G$, then $P(E|F) \leq P(G|F)$
 \end{enumerate}
 
 \textbf{Note:} don't change the condition. $P(E|F)$ and $P(E|\bar{F})$ have nothing to do with each other.
 
-\subsubsection*{Multiplication Rule}
+\subsubsection{Multiplication Rule}
 
 \begin{align*}
-       & P(E_1 \cap \dots \cap E_n)               \\
-       & = P(E_1)P(E_2|E_1)P(E_3|E_1 \cap E_2)    \\
-       & \dots P(E_n|E_1 \cap \dots \cap E_{n-1}) \\
+     & P(E_1 \cap \dots \cap E_n)               \\
+     & = P(E_1)P(E_2|E_1)P(E_3|E_1 \cap E_2)    \\
+     & \dots P(E_n|E_1 \cap \dots \cap E_{n-1}) \\
 \end{align*}
 
-\subsubsection*{Law of Total Probability}
+\subsubsection{Law of Total Probability}
 
 $$ P(E) = \sum_{i} P(E|F_i)P(F_i) $$
 
-\subsection*{Bayes' Theorem}
+\subsection{Bayes' Theorem}
 
-\subsubsection*{Partition Theorem}
-
-\begin{align*}
-       & P(E) = P(E|F)P(F)        \\
-       & + P(E|\bar{F})P(\bar{F}) \\
-\end{align*}
-
-\subsubsection*{Bayes' Theorem}
+\subsubsection{Partition Theorem}
 
 \begin{align*}
-       & P(F|E)                                                   \\
-       & = \frac{P(E|F)P(F)}{P(E|F)P(F) + P(E|\bar{F})P(\bar{F})} \\
+     & P(E) = P(E|F)P(F)        \\
+     & + P(E|\bar{F})P(\bar{F}) \\
 \end{align*}
 
-\subsection*{Independence}
+\subsubsection{Bayes' Theorem}
+
+\begin{align*}
+     & P(F|E)                                                   \\
+     & = \frac{P(E|F)P(F)}{P(E|F)P(F) + P(E|\bar{F})P(\bar{F})} \\
+\end{align*}
+
+\subsection{Independence}
 
 Two events $E$ and $F$ are independent if:
 
@@ -189,7 +189,7 @@ $$ P(E \cup G) = P(E) + P(G) $$
 $$ P(F \cup G) = P(F) + P(G) $$
 $$ P(E \cup F \cup G) = P(E) + P(F) + P(G) $$
 
-\subsubsection*{Proposition}
+\subsubsection{Proposition}
 
 If $E$ and $F$ are independent events, then $E$ and $\bar{F}$ are also independent.
 
